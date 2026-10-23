@@ -1,0 +1,1 @@
+Meet HuddleLens: an AI-enhanced sports co-viewing coach designed for Fire TV. It helps families, new fans, and experienced supporters understand and enjoy the same match together. This demonstration uses reliable mock match data, so every feature can be shown consistently.

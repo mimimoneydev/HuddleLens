@@ -1,0 +1,27 @@
+{
+  "name": "huddlelens-fire-tv",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "An AI sports co-viewing coach designed for Fire TV.",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "start": "NODE_ENV=production node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:integration": "RUN_INTEGRATION=1 node --test tests/integration.test.mjs",
+    "test:browser": "node tests/browser-smoke.mjs",
+    "check": "npm test && npm run build"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "repository": {"type": "git", "url": "git+https://github.com/mimimoneydev/HuddleLens.git"},
+  "homepage": "https://github.com/mimimoneydev/HuddleLens#readme",
+  "bugs": {"url": "https://github.com/mimimoneydev/HuddleLens/issues"},
+  "dependencies": {
+    "@aws-sdk/client-bedrock-runtime": "^3.1156.0",
+    "@aws-sdk/credential-providers": "^3.1156.0"
+  }
+}

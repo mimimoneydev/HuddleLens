@@ -1,0 +1,1 @@
+During live play, the AI Lens presents a small, non-blocking prompt. Here, it has identified the run nobody tracked. Selecting Show Me opens a tactical replay that explains not only what happened, but why the moment mattered.

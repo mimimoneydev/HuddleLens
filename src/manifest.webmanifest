@@ -1,0 +1,8 @@
+{
+  "name": "HuddleLens for Fire TV",
+  "short_name": "HuddleLens",
+  "display": "standalone",
+  "background_color": "#07110f",
+  "theme_color": "#07110f",
+  "start_url": "/"
+}

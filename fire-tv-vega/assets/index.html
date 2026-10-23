@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#07110f" />
+  <meta name="description" content="HuddleLens turns live sport into a shared, understandable family experience on Fire TV." />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>HuddleLens · Fire TV</title>
+</head>
+<body>
+  <main id="app" aria-live="polite">
+    <section class="screen home-screen active" data-screen="home">
+      <header class="topbar">
+        <div class="brand"><span class="brand-mark">H</span><span>HUDDLE<span>LENS</span></span></div>
+        <div class="service-status" id="home-status"><i></i><span>Connecting live data…</span></div>
+        <div class="profile"><span>Family room</span><div class="avatars"><b>J</b><b>M</b><b>+2</b></div></div>
+      </header>
+      <div class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><i></i> <span id="home-live-label">LIVE · CONNECTING</span></div>
+          <h1>Everyone sees<br><em>the whole game.</em></h1>
+          <p>Live sport, AI-powered explanations, inclusive audio, and private on-device movement challenges.</p>
+          <div class="hero-actions">
+            <button class="focusable primary" data-action="watch"><span class="play">▶</span> Watch live</button>
+            <button class="focusable quiet" data-action="settings">Settings</button>
+          </div>
+        </div>
+        <div class="match-card" aria-label="Live match">
+          <div class="broadcast-glow"></div>
+          <div class="league" id="home-league">LIVE SPORTS</div>
+          <div class="teams">
+            <div><span class="crest teal" id="home-home-crest">H</span><strong id="home-home-name">Home</strong></div>
+            <div class="score"><small id="home-minute">—</small><b><span id="home-home-score">0</span>&nbsp; — &nbsp;<span id="home-away-score">0</span></b></div>
+            <div><span class="crest coral" id="home-away-crest">A</span><strong id="home-away-name">Away</strong></div>
+          </div>
+          <div class="match-footer"><span><i></i> AI Lens has <b id="moment-count">0 moments</b></span><span>Open match&nbsp; ✦</span></div>
+        </div>
+      </div>
+      <div class="section-heading"><div><small>MADE FOR THIS ROOM</small><h2>One match. Four ways in.</h2></div><span>Use ◀ ▶ to explore</span></div>
+      <div class="feature-row">
+        <button class="feature-card focusable" data-action="watch"><span class="icon purple">✦</span><small>AI LENS</small><h3>Why it mattered</h3><p>Live context, generated at the depth you choose.</p><span class="arrow">→</span></button>
+        <button class="feature-card focusable" data-action="access"><span class="icon gold">◖</span><small>ACCESS</small><h3>Hear every moment</h3><p>Smart audio cues and calm commentary.</p><span class="arrow">→</span></button>
+        <button class="feature-card focusable" data-action="challenge"><span class="icon mint">↟</span><small>MOVE BREAK</small><h3>Play the pause</h3><p>Private on-device camera or remote scoring.</p><span class="arrow">→</span></button>
+      </div>
+      <footer><span><kbd>●</kbd> Select</span><span><kbd>☰</kbd> Options</span><span>Built for Fire TV · Live-ready · Remote-first</span></footer>
+    </section>
+
+    <section class="screen live-screen" data-screen="live">
+      <div class="video-stage">
+        <video id="live-video" autoplay playsinline controls crossorigin="anonymous"></video>
+        <div class="pitch-visual" id="pitch-visual">
+          <div class="pitch-lines"><span class="midline"></span><span class="circle"></span><span class="box left"></span><span class="box right"></span></div>
+          <div class="player p1">9</div><div class="player p2">11</div><div class="player p3 rival">4</div><div class="player p4 rival">6</div><div class="ball">●</div>
+        </div>
+        <div class="live-pill" id="live-state">LIVE</div>
+        <div class="scorebug"><span id="live-home-code">HOM</span><b id="live-home-score">0</b><span id="live-away-code">AWY</span><b id="live-away-score">0</b><time id="live-minute">—</time></div>
+        <div class="caption" id="live-caption">Waiting for the next live event…</div>
+        <aside class="lens-panel">
+          <div class="lens-head"><span class="spark">✦</span><div><small id="event-type">HUDDLELENS LIVE</small><strong id="event-title">Waiting for a key moment</strong></div><b id="event-impact">—</b></div>
+          <p id="event-summary">Live events will appear here as the data provider reports them.</p>
+          <button class="focusable primary wide" data-action="explain" id="explain-button" disabled>Explain this <span>●</span></button>
+          <small class="dismiss" id="ai-provider-label">AI ready</small>
+        </aside>
+        <div class="event-rail" id="event-rail" aria-label="Recent match events"></div>
+        <div class="timeline"><span id="match-progress"></span></div>
+      </div>
+      <nav class="control-dock">
+        <button class="focusable" data-action="home">⌂<small>Home</small></button>
+        <button class="focusable" data-action="explain">✦<small>AI Lens</small></button>
+        <button class="focusable" data-action="challenge">↟<small>Move</small></button>
+        <button class="focusable" data-action="access">◖<small>Access</small></button>
+        <button class="focusable" data-action="settings">⚙<small>Settings</small></button>
+      </nav>
+    </section>
+
+    <section class="screen replay-screen" data-screen="replay">
+      <header class="replay-head"><button class="focusable back" data-action="live">← Back to live</button><span id="replay-event-label">AI LENS · LIVE EVENT</span><span class="level-label" id="level-label">Rookie · plain language</span></header>
+      <div class="replay-grid">
+        <div class="tactics-board" id="tactics-board">
+          <div class="field-markings"></div>
+          <div class="token attacker a1">9</div><div class="token attacker a2">11</div><div class="token defender d1">4</div><div class="token defender d2">6</div>
+          <svg viewBox="0 0 700 440" aria-hidden="true"><path class="route route1" d="M250 245 Q380 100 570 130"/><path class="route route2" d="M255 245 Q380 290 520 235"/></svg>
+          <div class="freeze" id="freeze-label">LIVE · FREEZE FRAME</div>
+          <div class="ai-loading" id="ai-loading"><i></i><span>Generating grounded explanation…</span></div>
+        </div>
+        <article class="explanation">
+          <div class="impact"><span>IMPACT</span><b id="replay-impact">—</b><small>/100</small></div>
+          <small>THE BIG IDEA</small><h2 id="replay-title">Select a live event.</h2>
+          <p id="replay-summary">HuddleLens uses the match event and your selected detail level to generate a concise explanation.</p>
+          <div class="watch-cue"><span>◎</span><div><small>WATCH THIS</small><strong id="watch-cue">The next cue will appear here.</strong></div></div>
+          <ol class="tactical-steps" id="tactical-steps"></ol>
+          <div class="replay-actions"><button class="focusable primary" data-action="animate">▶ Play the movement</button><button class="focusable quiet" data-action="level" id="level-button">Detail: Rookie</button></div>
+          <small class="generation-meta" id="generation-meta">Waiting for AI</small>
+        </article>
+      </div>
+      <div class="next-moment"><span>Move prompt</span><b id="challenge-copy">A family challenge will be generated with the explanation.</b><button class="focusable" data-action="challenge">Start a family Move Break →</button></div>
+    </section>
+
+    <section class="screen challenge-screen" data-screen="challenge">
+      <header class="challenge-head"><button class="focusable back" data-action="live">← Exit challenge</button><div>LIVE MATCH HUDDLE</div><span>30 SEC</span></header>
+      <div class="challenge-wrap">
+        <div class="challenge-copy"><div class="eyebrow">FAMILY MOVE BREAK · PRIVATE BY DESIGN</div><h1>Quick feet.<br><em>Fast reactions.</em></h1><p id="challenge-instruction">Move side-to-side like a midfielder finding space. Use the remote, or enable on-device camera scoring. Camera frames never leave this device.</p><div class="members"><span>J</span><span>M</span><span>A</span><span>K</span><b>Everyone plays</b></div></div>
+        <div class="motion-zone">
+          <video id="camera-preview" autoplay playsinline muted></video><canvas id="motion-canvas" width="96" height="54"></canvas>
+          <div class="camera-privacy" id="camera-privacy">CAMERA OFF · NO FRAMES CAPTURED</div>
+          <div class="runner" id="runner"><span class="head"></span><span class="body"></span><span class="arms"></span><span class="legs"></span></div>
+          <div class="rings"></div>
+          <div class="rep-count"><span id="reps">0</span><small>/ <b id="rep-target">12</b> MOVES</small></div>
+          <div class="motion-status"><i></i><span id="motion-mode">REMOTE MOTION</span><b id="motion-hint">Press ◀ ▶ quickly</b></div>
+        </div>
+      </div>
+      <div class="challenge-controls"><button class="focusable primary" data-action="startChallenge">Start challenge</button><button class="focusable quiet" data-action="camera" id="camera-button">Enable camera</button><span id="encouragement">Ready when you are, team.</span></div>
+    </section>
+
+    <section class="screen access-screen" data-screen="access">
+      <header class="replay-head"><button class="focusable back" data-action="home">← Home</button><span>ACCESSIBILITY MIXER</span><span>Saved for Family room</span></header>
+      <div class="access-wrap"><div><div class="eyebrow">A MATCH THAT MEETS YOU</div><h1>More signal.<br><em>Less noise.</em></h1><p>Tune the experience without leaving the action. Preferences are stored locally on this TV profile.</p></div><div class="settings">
+        <button class="setting focusable active-setting" data-setting="captions" data-action="toggle"><span class="setting-icon">CC</span><div><b>Smart captions</b><small>Names speakers and explains crowd reactions</small></div><i></i></button>
+        <button class="setting focusable active-setting" data-setting="spatialAudio" data-action="toggle"><span class="setting-icon">◖</span><div><b>Spatial audio cues</b><small>Hear where the important action is moving</small></div><i></i></button>
+        <button class="setting focusable" data-setting="calmCommentary" data-action="toggle"><span class="setting-icon">≋</span><div><b>Calm commentary</b><small>Reduces crowd peaks and overlapping voices</small></div><i></i></button>
+        <button class="setting focusable active-setting" data-setting="highContrast" data-action="toggle"><span class="setting-icon">Aa</span><div><b>High-contrast play</b><small>Boosts ball, players, and score visibility</small></div><i></i></button>
+      </div></div>
+    </section>
+
+    <section class="screen settings-screen" data-screen="settings">
+      <header class="replay-head"><button class="focusable back" data-action="home">← Home</button><span>HUDDLELENS SETTINGS</span><span id="settings-save-state">Saved locally</span></header>
+      <div class="settings-layout">
+        <div class="settings-intro"><div class="eyebrow">LIVE SYSTEM CONTROL</div><h1>Choose the<br><em>right coach.</em></h1><p>Amazon Bedrock is the primary AI runtime, with OpenRouter available for automatic failover or manual selection. Credentials always stay on the HuddleLens server.</p>
+          <div class="system-health"><span><i id="data-health-dot"></i> Sports data</span><b id="data-health">Checking…</b><span><i id="bedrock-health-dot"></i> Amazon Bedrock</span><b id="bedrock-health">Checking…</b><span><i id="openrouter-health-dot"></i> OpenRouter</span><b id="openrouter-health">Checking…</b><span><i></i> Camera</span><b>On-device only</b></div>
+        </div>
+        <div class="settings-panel">
+          <label for="provider-select">AI provider routing</label>
+          <select class="focusable" id="provider-select" data-action="provider">
+            <option value="auto">Auto · Bedrock primary, OpenRouter fallback</option>
+            <option value="bedrock">Amazon Bedrock only</option>
+            <option value="openrouter">OpenRouter only</option>
+          </select>
+          <label for="model-select">AI explanation model</label>
+          <select class="focusable" id="model-select" data-action="model"><option>Loading AI models…</option></select>
+          <div class="price-card"><div><small>INPUT</small><b id="input-price">—</b><span>/ million tokens</span></div><div><small>OUTPUT</small><b id="output-price">—</b><span>/ million tokens</span></div><div><small>CONTEXT</small><b id="context-length">—</b><span>tokens</span></div></div>
+          <p class="model-description" id="model-description">Amazon Nova 2 Lite is the primary model. Choose OpenRouter routing to use its live model catalog.</p>
+          <div class="settings-actions"><button class="focusable primary" data-action="refreshModels">Refresh catalog</button><button class="focusable quiet" data-action="resetSettings">Restore defaults</button></div>
+          <div class="endpoint-box"><span>DATA SOURCE</span><b id="provider-name">Connecting…</b><small id="provider-detail">The production server controls credentials and licensed stream configuration.</small></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="runtime-config.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
