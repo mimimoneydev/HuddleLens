@@ -1,0 +1,21 @@
+Meet HuddleLens, an AI-enhanced sports co-viewing coach designed for Fire TV.
+
+It helps families, new fans, and experienced supporters understand and enjoy the same match together.
+
+This demonstration uses reliable mock match data, so every feature can be shown consistently.
+
+From the 10-foot home screen, viewers enter the match with the Fire TV remote. The interface is intentionally bold, calm, and readable across the room. HuddleLens keeps the broadcast central while quietly watching for moments where a little context can make a big difference.
+
+During live play, the AI Lens presents a small, non-blocking prompt. Here, it has identified the run nobody tracked. Selecting Show Me opens a tactical replay that explains not only what happened, but why the moment mattered.
+
+Animated telestration follows the player's movement. Maya drags the fullback wide, creating a seven-metre passing lane for Imani. A simple watch cue guides attention to the teal runner before the pass, turning a complex tactic into one clear idea.
+
+Explanations adapt to the room. Rookie mode uses plain language. Fan mode adds key tactics. And Coach mode offers advanced detail. Families can choose the depth that feels right without interrupting the match.
+
+At halftime, HuddleLens turns waiting into a 30-second family Move Break. Quick Feet asks everyone to move side-to-side like a midfielder finding space. The core experience needs no camera and works entirely with alternating remote inputs. Each valid left and right movement advances the shared challenge. Encouragement changes as the family builds rhythm. And the large counter stays easy to follow from the sofa.
+
+An optional future camera provider could score motion on-device while keeping raw video private. Twelve moves complete the huddle and award family points. The challenge is short, inclusive, and timed for natural pauses, so it adds energy without competing with the sport.
+
+Accessibility lives one click from the action. Smart captions can identify speakers and crowd reactions. Spatial audio cues indicate where play is moving. Calm commentary reduces crowd peaks and overlapping voices, while high-contrast play improves visibility. Every control is remote-friendly and saved for the room.
+
+HuddleLens brings explanation, accessibility, and playful movement into one coherent Fire TV experience. It turns spectators into a team—understanding, moving, and cheering together.

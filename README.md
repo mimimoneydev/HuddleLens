@@ -6,6 +6,26 @@ HuddleLens is a production-oriented live-sports co-viewing system for Fire TV. I
 
 The primary AI runtime is **Amazon Bedrock** using **Amazon Nova 2 Lite** (`global.amazon.nova-2-lite-v1:0`). In automatic mode, HuddleLens fails over to **OpenRouter**, whose default model is DeepSeek V4.1 Flash 1017 (`deepseek/deepseek-v4.1-flash-1017`). Viewers can also lock either provider in Settings.
 
+## Project Testing Link
+
+Test the hosted project at [https://huddleLens.jagantara.xyz](https://huddleLens.jagantara.xyz).
+
+## Testing instructions or credentials
+
+No account or credentials are required. For the best experience, open the link in the Fire TV simulator and use the following controls:
+
+- **Arrow keys / D-pad:** Move focus
+- **Enter / Select:** Activate the focused control
+- **Escape / Backspace / Back:** Return to the previous screen
+
+Suggested judge flow:
+
+1. Select **Watch live**, choose a match event, and select **Explain this** to generate an AI Lens explanation.
+2. On the replay screen, select **Play the movement** and switch between Rookie, Fan, and Coach detail levels.
+3. Open **Move Break**, start the challenge, and alternate Left and Right until the challenge is complete. Camera access is optional; if enabled, frames are processed only on the device and are never uploaded or stored.
+4. Open **Access** to test smart captions, spatial audio cues, calm commentary, and high-contrast play.
+5. Open **Settings** to inspect the Amazon Bedrock-first AI routing and provider health information.
+
 ## What is implemented
 
 - Server-side Amazon Bedrock Converse integration through the official AWS SDK and standard AWS credential chain.
